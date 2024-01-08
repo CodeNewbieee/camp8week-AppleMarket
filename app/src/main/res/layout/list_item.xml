@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/view_border"
     android:layout_height="130dp">
 
     <ImageView
@@ -10,6 +11,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginStart="15dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/shape_radius16"
         android:clipToOutline="true"
         android:src="@drawable/sample1"
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="25"
-        android:textColor="@color/gray"
+        android:textColor="@color/s_gray"
         app:layout_constraintEnd_toStartOf="@+id/iv_list_heart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iv_list_chat"
@@ -92,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="25"
-        android:textColor="@color/gray"
+        android:textColor="@color/s_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iv_list_heart"
