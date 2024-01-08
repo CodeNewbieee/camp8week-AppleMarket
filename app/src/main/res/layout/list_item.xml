@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/view_border"
-    android:layout_height="130dp">
+    android:layout_height="130dp"
+    android:background="@drawable/view_border_bottom">
 
     <ImageView
         android:id="@+id/iv_list"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="15dp"
         android:background="@drawable/shape_radius16"
         android:clipToOutline="true"
         android:src="@drawable/sample1"
@@ -46,60 +45,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
-        android:text="1,000원"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_list"
-        app:layout_constraintTop_toBottomOf="@+id/tv_list_location" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_list_location"
+        tools:text="180,000원" />
 
     <ImageView
         android:id="@+id/iv_list_chat"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/chat"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_list_chat"
         app:layout_constraintEnd_toStartOf="@+id/tv_list_chat"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/tv_list_title"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_list_chat"
-        app:layout_constraintTop_toTopOf="@+id/tv_list_chat"/>
+        app:layout_constraintTop_toTopOf="@+id/tv_list_chat" />
 
     <TextView
         android:id="@+id/tv_list_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="25"
         android:textColor="@color/s_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_list_heart"
         app:layout_constraintEnd_toStartOf="@+id/iv_list_heart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iv_list_chat"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_list_heart"
-        app:layout_constraintTop_toTopOf="@+id/iv_list_heart"/>
+        app:layout_constraintTop_toTopOf="@+id/iv_list_heart" />
 
     <ImageView
         android:id="@+id/iv_list_heart"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="10dp"
         android:src="@drawable/heart"
-        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_list_heart"
         app:layout_constraintEnd_toStartOf="@+id/tv_list_heart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tv_list_chat"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_list_heart"
-        app:layout_constraintTop_toTopOf="@+id/tv_list_heart"/>
+        app:layout_constraintTop_toTopOf="@+id/tv_list_heart" />
 
     <TextView
         android:id="@+id/tv_list_heart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="10dp"
         android:text="25"
         android:textColor="@color/s_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_list_heart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintStart_toEndOf="@+id/iv_list_heart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
