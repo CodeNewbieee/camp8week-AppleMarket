@@ -7,23 +7,15 @@
     android:orientation="vertical"
     tools:context=".SecondActivity">
 
-    <ImageView
-        android:id="@+id/iv_item_backbtn"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="15dp"
-        android:src="@drawable/left_arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cv_item_bottom">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,10 +26,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="fitXY"
+                android:src="@drawable/sample8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/sample8" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cv_item_profile"
@@ -141,19 +133,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:text="급하게 돈이 필요하여 팝니다."
+                    android:text="급하게 돈이 필요하여 팝니다 ㅜㅜ"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-
             </LinearLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cv_item_bottom"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -176,10 +167,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:background="@drawable/view_border_start"
+            android:paddingStart="15dp"
             android:textColor="@color/black"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:paddingStart="15dp"
             app:layout_constraintBottom_toBottomOf="@id/iv_item_heart"
             app:layout_constraintStart_toEndOf="@id/iv_item_heart"
             app:layout_constraintTop_toTopOf="@id/iv_item_heart"
@@ -200,7 +191,15 @@
             app:layout_constraintStart_toEndOf="@id/tv_item_price"
             app:layout_constraintTop_toTopOf="@id/tv_item_price" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_item_backbtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,12 +20,15 @@
 
     <TextView
         android:id="@+id/tv_list_title"
-        android:layout_width="wrap_content"
+        android:layout_width="255dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="산지 한달된 컴퓨터 팝니다"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_list"
         app:layout_constraintTop_toTopOf="@+id/iv_list" />
 
@@ -33,7 +36,8 @@
         android:id="@+id/tv_list_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="3dp"
         android:text="서울 서대문구 장천동"
         android:textColor="@color/gray"
         android:textSize="14sp"
@@ -44,7 +48,8 @@
         android:id="@+id/tv_list_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="3dp"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"
@@ -56,51 +61,48 @@
         android:id="@+id/iv_list_chat"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginBottom="15dp"
         android:src="@drawable/chat"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_list_chat"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_list_chat"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/tv_list_title"
-        app:layout_constraintTop_toTopOf="@+id/tv_list_chat" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_list_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
         android:text="25"
         android:textColor="@color/s_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_list_heart"
+        app:layout_constraintBottom_toBottomOf="@id/iv_list_chat"
         app:layout_constraintEnd_toStartOf="@+id/iv_list_heart"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iv_list_chat"
-        app:layout_constraintTop_toTopOf="@+id/iv_list_heart" />
+        app:layout_constraintTop_toTopOf="@id/iv_list_chat" />
 
     <ImageView
         android:id="@+id/iv_list_heart"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="8dp"
         android:src="@drawable/heart"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_list_heart"
+        app:layout_constraintBottom_toBottomOf="@id/tv_list_chat"
         app:layout_constraintEnd_toStartOf="@+id/tv_list_heart"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tv_list_chat"
-        app:layout_constraintTop_toTopOf="@+id/tv_list_heart" />
+        app:layout_constraintTop_toTopOf="@id/tv_list_chat" />
 
     <TextView
         android:id="@+id/tv_list_heart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="2dp"
         android:text="25"
         android:textColor="@color/s_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_list_heart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_list_heart" />
+        app:layout_constraintStart_toEndOf="@+id/iv_list_heart"
+        app:layout_constraintTop_toTopOf="@id/iv_list_heart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
