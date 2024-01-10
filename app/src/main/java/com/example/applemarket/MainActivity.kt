@@ -15,6 +15,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.applemarket.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -52,13 +53,16 @@ class MainActivity : AppCompatActivity() {
                     object : MerchandiseAdapter.ItemClick {
                         override fun onClick(view: View, position: Int) {
                             Log.d("Click", "MainActivity : $position")
-                            val item = list.get(position)
                             val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                            intent.putExtra("data", item)
+                            intent.putExtra("data", list.get(position))
                             startActivity(intent)
                         } // Adapter에 리스트 전달
                     }
             }
+
+            var isTop = true
+            // 플로팅 버튼에 기능 할당, RecyclerView의 위치 확인
+            rvMainList.addOnScrollListener(object : RecyclerView.OnScrollListener(){})
         }
 
     }
