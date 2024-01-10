@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AlphaAnimation
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -60,11 +61,29 @@ class MainActivity : AppCompatActivity() {
                     }
             }
 
+            val fadeIn = AlphaAnimation(0f,1f).apply { duration = 200 } // 서서히 나오기 , f는 투명도
+            val fadeOut = AlphaAnimation(1f,0f).apply { duration = 200 } // 서서히 사라지기, f는 투명도
             var isTop = true
             // 플로팅 버튼에 기능 할당, RecyclerView의 위치 확인
-            rvMainList.addOnScrollListener(object : RecyclerView.OnScrollListener(){})
-        }
+            rvMainList.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if(!rvMainList.canScrollVertically(-1)&& newState==RecyclerView.SCROLL_STATE_IDLE){ // 스크롤이 최상단인 상태면서 스크롤을 하지 않은 상태일때
+                        btnFloating.startAnimation(fadeOut)
+                        btnFloating.visibility = View.GONE
+                        isTop=true
+                    } else if(isTop) {
+                        btnFloating.startAnimation(fadeIn)
+                        btnFloating.visibility = View.VISIBLE
+                        isTop=false
+                    }
+                }
+            })
 
+            btnFloating.setOnClickListener {
+                rvMainList.smoothScrollToPosition(0)
+            }
+        }
     }
 
     private fun notification() { // 종 아이콘 클릭시 알람 발생
