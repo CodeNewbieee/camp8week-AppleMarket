@@ -79,9 +79,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
-
             btnFloating.setOnClickListener {
-                rvMainList.smoothScrollToPosition(0)
+                rvMainList.smoothScrollToPosition(0) // 플로팅 버튼 클릭시, RecyclerView 최상단 이동
             }
         }
     }
