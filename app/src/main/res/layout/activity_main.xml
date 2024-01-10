@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:text="내배캠동"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,22 +31,22 @@
             android:id="@+id/iv_main_toparrow"
             android:layout_width="17dp"
             android:layout_height="17dp"
-            android:src="@drawable/arrow"
             android:layout_marginStart="10dp"
+            android:src="@drawable/arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_main_title"
             app:layout_constraintStart_toEndOf="@+id/tv_main_title"
-            app:layout_constraintTop_toTopOf="@+id/tv_main_title"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_main_title"/>
+            app:layout_constraintTop_toTopOf="@+id/tv_main_title" />
 
         <ImageView
             android:id="@+id/iv_main_alarm"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/alarm"
-            app:layout_constraintTop_toTopOf="@id/iv_main_toparrow"
             app:layout_constraintBottom_toBottomOf="@+id/iv_main_toparrow"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toEndOf="@id/iv_main_toparrow"
-            app:layout_constraintHorizontal_bias="0.9"/>
+            app:layout_constraintTop_toTopOf="@id/iv_main_toparrow" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -55,9 +56,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layoutAnimation="@anim/layout_animation_fall_down"
-        app:layout_constraintTop_toBottomOf="@+id/cv_main_top"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_main_top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

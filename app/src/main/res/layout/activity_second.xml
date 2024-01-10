@@ -109,7 +109,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/tv_item_title"
+                android:id="@+id/tv_item_layout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
@@ -118,13 +118,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/cv_item_profile">
 
                 <TextView
+                    android:id="@+id/tv_item_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:text="샤넬 탑핸들 가방"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -135,7 +136,7 @@
                     android:layout_marginTop="20dp"
                     android:text="급하게 돈이 필요하여 팝니다 ㅜㅜ"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 

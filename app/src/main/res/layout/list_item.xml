@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/tv_list_title"
-        android:layout_width="255dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:ellipsize="end"

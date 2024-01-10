@@ -3,14 +3,18 @@ package com.example.applemarket
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.DialogInterface
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.applemarket.databinding.ActivityMainBinding
 
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             Merchandise(R.drawable.sample9,"4행정 엔진분무기 판매합니다.","3년전에 사서 한번 사용하고 그대로 둔 상태입니다. 요즘 사용은 안해봤습니다. 그래서 저렴하게 내 놓습니다. 중고라 반품은 어렵습니다.\n","알뜰한",30000,"원주시 명륜2동",7,28),
             Merchandise(R.drawable.sample10,"셀린느 버킷 가방","22년 신세계 대전 구매입니당\n" + "셀린느 버킷백\n" + "구매해서 몇번사용했어요\n" + "까짐 스크래치 없습니다.\n" + "타지역에서 보내는거라 택배로 진행합니당!","똑태현",190000,"중구 동화동",40,6),
             Merchandise(R.drawable.sample11,"공기청정기 팔아요~","작년에 샀습니다. 영수증 있구요\n\n"+"무상AS기간은 지났습니다. 유상만 되는걸로 알아요\n\n"+"필요하신분만 연락주세요","물구나무",900000,"동구 물론동",20,2),
-            Merchandise(R.drawable.sample12,"고성능 노트북 필요하신분\n"+"젠북 듀오 싸게 팝니다!" +"  며칠만 싸게 파는거에요","23년 4월쯤에 샀습니다. 상태 괜찮구요\n\n"+"네고 안받으니 따로 연락하지 말아주세요\n\n"+"바로 구매하실분만 채팅해주세요"+"비흡연자이고 애완동물 키우지 않습니다.","바란",5800000,"발랑구 울화동",11,13),
+            Merchandise(R.drawable.sample12,"고성능 노트북 필요하신분\n"+"젠북 듀오 싸게 팝니다!" +"  며칠만 싸게 파는거에요","23년 4월쯤에 샀습니다. 상태 괜찮구요\n\n"+"네고 안받으니 따로 연락하지 말아주세요\n\n"+"바로 구매하실분만 채팅해주세요"+"비흡연자이고 애완동물 키우지 않습니다. 상태 궁금하신분들은 채팅으로 질문주세요, \n직거래만 하고 택배는 하지 않습니다.","바란",5800000,"발랑구 울화동",11,13),
         )
 
 
@@ -41,11 +45,22 @@ class MainActivity : AppCompatActivity() {
             ivMainAlarm.setOnClickListener { // 알람 발생
                 notification()
             }
-            rvMainList.layoutManager=LinearLayoutManager(this@MainActivity,LinearLayoutManager.VERTICAL,false)
+            rvMainList.layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             rvMainList.setHasFixedSize(true) // RecyclerView 에게 고정된 사이즈라고 알려주기 (생성시 일일히 전체 레이아웃 사이즈 체크 필요없음)
-            rvMainList.adapter=MerchandiseAdapter(list) // Adapter에 리스트 전달
+            rvMainList.adapter = MerchandiseAdapter(list).apply {
+                itemClick =
+                    object : MerchandiseAdapter.ItemClick {
+                        override fun onClick(view: View, position: Int) {
+                            Log.d("Click", "MainActivity : $position")
+                            val item = list.get(position)
+                            val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                            intent.putExtra("data", item)
+                            startActivity(intent)
+                        } // Adapter에 리스트 전달
+                    }
+            }
         }
-
 
     }
 
