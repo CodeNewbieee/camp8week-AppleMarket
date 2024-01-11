@@ -1,5 +1,6 @@
 package com.example.applemarket
 
+import android.app.Dialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.DialogInterface
@@ -50,14 +51,41 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             rvMainList.setHasFixedSize(true) // RecyclerView 에게 고정된 사이즈라고 알려주기 (생성시 일일히 전체 레이아웃 사이즈 체크 필요없음)
             rvMainList.adapter = MerchandiseAdapter(list).apply {
+
+                // 짧게 클릭시 (상품페이지 이동)
                 itemClick =
                     object : MerchandiseAdapter.ItemClick {
                         override fun onClick(view: View, position: Int) {
                             Log.d("Click", "MainActivity : $position")
                             val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                            intent.putExtra(Constans.ITEM_INDEX, list.get(position))
+                            intent.putExtra(Constans.ITEM_OBJECT, list[position]) // list.get(position) 과 동일
                             startActivity(intent)
                         } // Adapter에 리스트 전달
+                    }
+
+                // 길게 클릭시 (해당 게시글 삭제)
+                itemLongClick =
+                    object : MerchandiseAdapter.ItemLongClick {
+                        override fun onLongClick(view: View, position: Int) {
+                            val builder = AlertDialog.Builder(this@MainActivity)
+                            builder.setTitle("상품 삭제")
+                            builder.setMessage("상품을 정말로 삭제하시겠습니까?")
+                            builder.setIcon(R.drawable.doublechat)
+                            val listener = object : DialogInterface.OnClickListener{
+                                override fun onClick(dialog: DialogInterface?, which: Int) {
+                                    when(which) {
+                                        DialogInterface.BUTTON_POSITIVE -> {
+                                            list.removeAt(position) // 더미데이터 리스트에서 삭제
+                                            notifyItemRemoved(position)} // 삭제된 현황을 알림 (알리지않으면 리사이클러뷰에서 반영이 안됨)
+                                        DialogInterface.BUTTON_NEGATIVE -> dialog?.dismiss()
+                                    }
+                                }
+                            }
+                            builder.setPositiveButton("확인", listener)
+                            builder.setNegativeButton("취소", listener)
+                            builder.show()
+                        }
+
                     }
             }
 
@@ -73,8 +101,8 @@ class MainActivity : AppCompatActivity() {
                         btnFloating.visibility = View.GONE
                         isTop=true
                     } else if(isTop) {
-                        btnFloating.startAnimation(fadeIn)
                         btnFloating.visibility = View.VISIBLE
+                        btnFloating.startAnimation(fadeIn)
                         isTop=false
                     }
                 }

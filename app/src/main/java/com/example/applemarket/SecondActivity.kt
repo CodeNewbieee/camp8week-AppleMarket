@@ -33,14 +33,14 @@ class SecondActivity : AppCompatActivity() {
                 in 55.0..60.0 -> ivItemTemperature.setImageResource(R.drawable.lv6)
             }
 
+            // 메인에서 넘어온 객체 데이터를 받아서 각 뷰에다가 할당
             val priceFormat = DecimalFormat("#,###원") // 가격 숫자 콤마 추가
-            ivItem.setImageResource(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.photo)
-            tvItemSeller.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.seller)
-            tvItemLocation.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.address)
-            tvItemTitle.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.title)
-            tvItemInfo.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.intro)
-            tvItemPrice.setText(priceFormat.format(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.price))
+            ivItem.setImageResource(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.photo)
+            tvItemSeller.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.seller)
+            tvItemLocation.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.address)
+            tvItemTitle.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.title)
+            tvItemInfo.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.intro)
+            tvItemPrice.setText(priceFormat.format(intent.getParcelableExtra<Merchandise>(Constans.ITEM_OBJECT)!!.price))
         }
-
     }
 }

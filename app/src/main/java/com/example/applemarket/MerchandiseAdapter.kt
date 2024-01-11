@@ -14,10 +14,17 @@ import androidx.core.content.ContextCompat
 
 class MerchandiseAdapter(private val list: List<Merchandise>) :RecyclerView.Adapter<MerchandiseAdapter.MerchandiseViewHolder>() {
 
+    // 짧게 클릭시
     interface ItemClick {
         fun onClick(view : View, position : Int)
     }
+    // 길게 클릭시
+    interface ItemLongClick {
+        fun onLongClick(view : View, position : Int)
+    }
+
     var itemClick : ItemClick? = null
+    var itemLongClick : ItemLongClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MerchandiseViewHolder {
         Log.d("McAdapter","onCreateViewHolder")
@@ -25,10 +32,17 @@ class MerchandiseAdapter(private val list: List<Merchandise>) :RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: MerchandiseViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {  //클릭이벤트추가부분
-            Log.d("Click","onBindViewHolder : $position")
-            itemClick?.onClick(it, position)
+        holder.itemView.setOnClickListener {  //짧게 클릭시
+            Log.d("Click","onBindViewHolder click: $position")
+            itemClick?.onClick(it, position) // 함수 실행
         }
+
+        holder.itemView.setOnLongClickListener { // 길게 클릭시
+            Log.d("Click","onBindViewHolder Longclick: $position")
+            itemLongClick?.onLongClick(it,position) // 함수 실행
+            return@setOnLongClickListener true // ???
+        }
+
         Log.d("McAdapter","onBindViewHolder : $position")
         holder.bind(list[position]) // 더미 데이터 순번당 데이터 연결(바인딩)
     }
