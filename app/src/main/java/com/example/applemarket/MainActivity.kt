@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                         override fun onClick(view: View, position: Int) {
                             Log.d("Click", "MainActivity : $position")
                             val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                            intent.putExtra("data", list.get(position))
+                            intent.putExtra(Constans.ITEM_INDEX, list.get(position))
                             startActivity(intent)
                         } // Adapter에 리스트 전달
                     }
@@ -138,6 +138,7 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(dialog: DialogInterface?, which: Int) {
                 when(which) {
                     DialogInterface.BUTTON_POSITIVE -> if(!isFinishing)finish()
+                    DialogInterface.BUTTON_NEGATIVE -> dialog?.dismiss()
                 }
             }
         }

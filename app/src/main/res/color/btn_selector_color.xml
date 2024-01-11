@@ -5,6 +5,6 @@
     </item>
 
     <item android:state_pressed="true"
-        android:color="#334EED">
+        android:color="#0666F8">
     </item>
 </selector>

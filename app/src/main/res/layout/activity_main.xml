@@ -68,6 +68,7 @@
         app:backgroundTint="@color/btn_selector_color"
         android:src="@drawable/gotop_arrow"
         app:tint ="@color/btn_selector_icon"
+        app:fabSize="mini"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

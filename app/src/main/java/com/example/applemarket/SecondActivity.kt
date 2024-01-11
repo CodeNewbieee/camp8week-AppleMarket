@@ -34,12 +34,12 @@ class SecondActivity : AppCompatActivity() {
             }
 
             val priceFormat = DecimalFormat("#,###원") // 가격 숫자 콤마 추가
-            ivItem.setImageResource(intent.getParcelableExtra<Merchandise>("data")!!.photo)
-            tvItemSeller.setText(intent.getParcelableExtra<Merchandise>("data")!!.seller)
-            tvItemLocation.setText(intent.getParcelableExtra<Merchandise>("data")!!.address)
-            tvItemTitle.setText(intent.getParcelableExtra<Merchandise>("data")!!.title)
-            tvItemInfo.setText(intent.getParcelableExtra<Merchandise>("data")!!.intro)
-            tvItemPrice.text = priceFormat.format(intent.getParcelableExtra<Merchandise>("data")!!.price)
+            ivItem.setImageResource(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.photo)
+            tvItemSeller.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.seller)
+            tvItemLocation.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.address)
+            tvItemTitle.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.title)
+            tvItemInfo.setText(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.intro)
+            tvItemPrice.setText(priceFormat.format(intent.getParcelableExtra<Merchandise>(Constans.ITEM_INDEX)!!.price))
         }
 
     }
