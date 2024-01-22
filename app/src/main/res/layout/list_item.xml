@@ -86,7 +86,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/heart"
+        android:src="@drawable/ic_list_favorite_empty"
         app:layout_constraintBottom_toBottomOf="@id/tv_list_chat"
         app:layout_constraintEnd_toStartOf="@+id/tv_list_heart"
         app:layout_constraintStart_toEndOf="@+id/tv_list_chat"
